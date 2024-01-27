@@ -10,32 +10,25 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
+export default function PostCard(props) {
+  const { image, description, firstName } = props;
+  console.log(firstName);
 
-export default function PostCard() {
-
-  
   return (
-    <Card sx={{ maxWidth: 345, marginBottom:"10px"}}>
+    <Card sx={{ maxWidth: 345, marginBottom: "10px" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            {firstName?.substring(0, 1)}
           </Avatar>
         }
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image=""
-        alt="Paella dish"
-      />
+      <CardMedia component="img" height="194" image={image} alt="Paella dish" />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

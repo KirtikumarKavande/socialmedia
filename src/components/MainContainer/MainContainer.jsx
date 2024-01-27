@@ -6,6 +6,8 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import PostCard from "../PostCard";
 import PostCardList from "../PostCardList.jsx";
+import User from "../user/User.jsx";
+import UserList from "../user/UserList.jsx";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,13 +22,16 @@ export default function MainContainer() {
     console.log("useEffect running");
   }, []);
   return (
-    <Box sx={{ width: "100%" }} marginX={25}>
+    <Box sx={{ width: "100%" }} marginX={35}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={4}>
-          <PostCard />
+          {/* <PostCard /> */}
+          <Item>
+            <UserList />
+          </Item>
         </Grid>
         <Grid item xs={8}>
-         <PostCardList/>
+          <PostCardList />
         </Grid>
       </Grid>
     </Box>

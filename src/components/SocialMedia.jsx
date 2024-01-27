@@ -1,9 +1,12 @@
 import React from 'react'
 import PostCard from './PostCard'
+import Navbar from './Navbar/Navbar'
 
 const SocialMedia = () => {
   return (
-    <div><PostCard/></div>
+    <div>
+        <Navbar/>
+        <PostCard/></div>
   )
 }
 

@@ -1,7 +1,11 @@
-import Button from "@mui/material/Button";
+import SocialMedia from "./components/SocialMedia.jsx";
 
 const App = () => {
-  return <Button variant="contained">Hello world</Button>;
+  return (
+    <>
+      <SocialMedia />
+    </>
+  );
 };
 
 export default App;

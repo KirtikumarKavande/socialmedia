@@ -13,8 +13,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { createSvgIcon } from "@mui/material/utils";
+import Modal from "../Modal/Modal";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,6 +58,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -133,9 +138,26 @@ export default function Navbar() {
       </MenuItem>
     </Menu>
   );
-
+  const PlusIcon = createSvgIcon(
+    // credit: plus icon from https://heroicons.com/
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 4.5v15m7.5-7.5h-15"
+      />
+    </svg>,
+    "Plus"
+  );
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Modal open={open} handleOpen={handleOpen} handleClose={handleClose} />
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -165,6 +187,18 @@ export default function Navbar() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
+          <Box
+            sx={{
+              alignItems: "center",
+              justifyItems: "center",
+              display: "flex",
+            }}
+            onClick={handleOpen}
+          >
+            <PlusIcon />
+            Add Post
+          </Box>
+
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
@@ -186,9 +220,7 @@ export default function Navbar() {
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
               color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
+            ></IconButton>
           </Box>
         </Toolbar>
       </AppBar>

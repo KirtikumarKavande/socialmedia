@@ -1,5 +1,4 @@
 import React from "react";
-import PostCard from "./PostCard";
 import Navbar from "./Navbar/Navbar"
 import MainContainer from "./MainContainer/MainContainer";
 import { Box } from "@mui/material";
@@ -7,6 +6,7 @@ import { Box } from "@mui/material";
 const SocialMedia = () => {
   return (
     <div>
+      
       <Navbar/>
       <Box sx={{pt:2}}>
       <MainContainer/>

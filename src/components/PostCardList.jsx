@@ -11,7 +11,7 @@ const PostCardList = () => {
       })
       .then((res) => setPost(res.data.data));
   }, []);
-  console.log(post);
+  console.log(post)
   return (
     <div>
       {post &&
@@ -19,7 +19,7 @@ const PostCardList = () => {
           <PostCard
             key={item.id}
             image={item.image}
-            description={item.description}
+            description={item.text}
             firstName={item.owner.firstName}
             likes={item.likes}
           />

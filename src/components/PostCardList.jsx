@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PostCard from "./PostCard";
+import postData from "./Provider/post";
 
 const PostCardList = () => {
-  const [post, setPost] = useState();
+  const {post,setPost}= useContext(postData)
   useEffect(() => {
     axios
       .get("https://dummyapi.io/data/v1/post", {

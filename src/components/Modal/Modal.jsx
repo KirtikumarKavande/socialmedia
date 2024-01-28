@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
 import axios from "axios";
+import postData from "../Provider/post";
 
 const style = {
   position: "absolute",
@@ -19,6 +20,8 @@ const style = {
 };
 
 export default function BasicModal({ open, handleClose }) {
+  const {post,setPost}= React.useContext(postData)
+
   const [newPost, setNewPost] = React.useState({ text: "", image: "" });
   console.log(newPost);
   const createAPost = () => {
@@ -32,7 +35,7 @@ export default function BasicModal({ open, handleClose }) {
       .post("https://dummyapi.io/data/v1/post/create", postObj, {
         headers: { "app-id": import.meta.env.VITE_APP_ID },
       })
-      .then((res) => setNewPost(res.data.data));
+      .then((res) => setPost([res.data,...post,]));
     setNewPost("");
   };
   return (

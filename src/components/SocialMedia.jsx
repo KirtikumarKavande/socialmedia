@@ -6,12 +6,9 @@ import PostProvider from "./Provider/PostProvider";
 
 const SocialMedia = () => {
   return (
-    <PostProvider>
-      <Navbar />
       <Box sx={{ pt: 2 }}>
         <MainContainer />
       </Box>
-    </PostProvider>
   );
 };
 

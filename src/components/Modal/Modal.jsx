@@ -20,7 +20,7 @@ const style = {
 };
 
 export default function BasicModal({ open, handleClose }) {
-  const {post,setPost}= React.useContext(postData)
+  const { post, setPost } = React.useContext(postData);
 
   const [newPost, setNewPost] = React.useState({ text: "", image: "" });
   console.log(newPost);
@@ -35,7 +35,7 @@ export default function BasicModal({ open, handleClose }) {
       .post("https://dummyapi.io/data/v1/post/create", postObj, {
         headers: { "app-id": import.meta.env.VITE_APP_ID },
       })
-      .then((res) => setPost([res.data,...post,]));
+      .then((res) => setPost([res.data, ...post]));
     setNewPost("");
   };
   return (

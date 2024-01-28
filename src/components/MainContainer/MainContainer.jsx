@@ -22,7 +22,7 @@ export default function MainContainer() {
     console.log("useEffect running");
   }, []);
   return (
-    <Box sx={{ width: "100%" }} marginX={35}>
+    <Box sx={{ width: "100%" }} marginX={30}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={4}>
           {/* <PostCard /> */}

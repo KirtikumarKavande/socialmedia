@@ -21,6 +21,7 @@ const PostCardList = () => {
             image={item.image}
             description={item.description}
             firstName={item.owner.firstName}
+            likes={item.likes}
           />
         ))}
     </div>

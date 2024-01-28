@@ -4,7 +4,7 @@ import SocialMedia from "./components/SocialMedia.jsx";
 const App = () => {
   return (
     <>
-      <MainContainer />
+      <SocialMedia />
     </>
   );
 };

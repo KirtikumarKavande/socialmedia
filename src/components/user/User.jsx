@@ -6,6 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Checkbox from "@mui/material/Checkbox";
 import Avatar from "@mui/material/Avatar";
+import { Link } from "react-router-dom";
 
 export default function User({ user }) {
   return (
@@ -17,15 +18,17 @@ export default function User({ user }) {
         const labelId = `checkbox-list-secondary-label-${user.id}`;
         return (
           <ListItem key={user.id} disablePadding>
-            <ListItemButton>
-              <ListItemAvatar>
-                <Avatar alt={user.firstName} src={user.picture} />
-              </ListItemAvatar>
-              <ListItemText
-                id={labelId}
-                primary={user.firstName + " " + user.lastName}
-              />
-            </ListItemButton>
+            <Link to={`user/${user.id}`}>
+              <ListItemButton>
+                <ListItemAvatar>
+                  <Avatar alt={user.firstName} src={user.picture} />
+                </ListItemAvatar>
+                <ListItemText
+                  id={labelId}
+                  primary={user.firstName + " " + user.lastName}
+                />
+              </ListItemButton>
+            </Link>
           </ListItem>
         );
       })}

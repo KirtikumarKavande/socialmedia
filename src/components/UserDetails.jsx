@@ -7,22 +7,14 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { useQuery } from "react-query";
+import fetchData from "./helper/fetchData";
 const UserDetails = () => {
   const { id } = useParams();
-  const [getIndividualData, setGetIndividualData] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(`https://dummyapi.io/data/v1/user/${id}`, {
-        headers: { "app-id": import.meta.env.VITE_APP_ID },
-      })
-      .then((res) => {
-        setIsLoading(false);
-        setGetIndividualData(res.data);
-      });
-  }, []);
-  console.log("getIndividualData", getIndividualData);
+
+  const { isLoading, isError, data } = useQuery(["user", id], fetchData);
+  console.log("data", data);
+
   return (
     <div>
       {isLoading ? (
@@ -31,18 +23,18 @@ const UserDetails = () => {
         <Card sx={{ maxWidth: 345, marginX: "auto", marginTop: "100px" }}>
           <CardMedia
             sx={{ height: 140 }}
-            image={getIndividualData.picture}
+            image={data.picture}
             title="green iguana"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              {getIndividualData.firstName + "" + getIndividualData.lastName}
+              {data.firstName + "" + data.lastName}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              <div>Gender:{getIndividualData.gender}</div>
-              <div>Email:{getIndividualData.email}</div>
-              <div>Phone:{getIndividualData.phone}</div>
-              <div>Country:{getIndividualData.location?.country}</div>
+              <div>Gender:{data.gender}</div>
+              <div>Email:{data.email}</div>
+              <div>Phone:{data.phone}</div>
+              <div>Country:{data.location?.country}</div>
             </Typography>
           </CardContent>
           <CardActions>

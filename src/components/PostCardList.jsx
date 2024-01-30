@@ -12,7 +12,6 @@ const PostCardList = () => {
       })
       .then((res) => setPost(res.data.data));
   }, []);
-  console.log(post)
   return (
     <div>
       {post &&

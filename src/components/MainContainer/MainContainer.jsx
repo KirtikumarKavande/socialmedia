@@ -18,9 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function MainContainer() {
-  useEffect(() => {
-    console.log("useEffect running");
-  }, []);
+ 
   return (
     <Box sx={{ width: "100%" }} marginX={30}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

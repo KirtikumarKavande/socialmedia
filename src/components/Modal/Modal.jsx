@@ -23,7 +23,6 @@ export default function BasicModal({ open, handleClose }) {
   const { post, setPost } = React.useContext(postData);
 
   const [newPost, setNewPost] = React.useState({ text: "", image: "" });
-  console.log(newPost);
   const createAPost = () => {
     let postObj = {
       ...newPost,

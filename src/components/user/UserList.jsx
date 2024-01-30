@@ -11,7 +11,6 @@ const UserList = () => {
       })
       .then((res) => setUser(res.data.data));
   }, []);
-  console.log("user",user)
   return <User user={user} />;
 };
 
